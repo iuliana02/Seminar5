@@ -1,6 +1,9 @@
 #include "AutoController.h"
 #include "Rental.h"
 #include "Auto.h"
+#include <vector>
+#include <algorithm>
+#include "Utils.h"
 using namespace std;
 
 AutoController::AutoController()
@@ -66,6 +69,7 @@ AutoController* AutoController::ret_instanta()
 	return instanta;
 }
 
+/*
 vector<Auto*> AutoController::sort_autos()
 {
 	vector<Auto*> aux = repo.autos;
@@ -81,8 +85,28 @@ vector<Auto*> AutoController::sort_autos()
 		}
 	}
 	return aux;
-}
+}*/
 
 AutoController::~AutoController()
 {
+}
+
+
+//De la seminar 6
+
+//Sortarea intre obiecte:
+//	-suprascriere operator <
+//	-functor 
+void AutoController::sort_autos_std()
+{
+	// sort_by_marke()- conditia dupa care sa sorteze 
+	// in paranteze se apeleaza constructorul (trimitem ca param un obiect)
+	//sort(repo.autos.begin(), repo.autos.end(), sort_by_marke());
+
+	sorter->sort(repo.autos);
+}
+
+void AutoController::setSorter(Sorter* srt)
+{
+	sorter = srt;
 }

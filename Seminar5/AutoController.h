@@ -2,6 +2,8 @@
 #include "AutoInMemoryRepository.h"
 //#include "Kunde.h"
 #include <vector>
+#include <algorithm>
+#include "Sorter.h"
 using namespace std;
 
 class AutoController //: public AutoInMemoryRepository
@@ -9,6 +11,8 @@ class AutoController //: public AutoInMemoryRepository
 private:
 	AutoController();
 	static AutoController *instanta;
+
+	Sorter* sorter;
 
 public:
 	AutoInMemoryRepository repo;
@@ -24,6 +28,10 @@ public:
 	//void adding_autos();
 
 	static AutoController* ret_instanta();
-	vector<Auto*> sort_autos();
+//	vector<Auto*> sort_autos();
+
+	void sort_autos_std();
+
+	void setSorter(Sorter *srt);
 };
 
